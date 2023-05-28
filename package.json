@@ -1,5 +1,5 @@
 {
-  "name": "node-sns",
+  "name": "node-aws-sns",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
