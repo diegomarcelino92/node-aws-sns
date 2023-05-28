@@ -13,10 +13,7 @@ app.post("/send-message", async (req, res) => {
 
   console.log("Sending message to SNS Topic...");
   const { $response, MessageId } = await sns
-    .publish({
-      Message: req.body.message,
-      TopicArn: SNS_TOPIC_ARN,
-    })
+    .publish({ Message: req.body.message, TopicArn: SNS_TOPIC_ARN })
     .promise();
 
   if ($response.error) {
