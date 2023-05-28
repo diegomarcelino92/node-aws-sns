@@ -7,11 +7,11 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post("/send-message", async (req, res) => {
-  console.log("Sending message to SNS Topic...");
   const message = req.body.message;
 
   if (!message) return res.status(400).send({ error: "Missing message" });
 
+  console.log("Sending message to SNS Topic...");
   const { $response, MessageId } = await sns
     .publish({
       Message: req.body.message,
