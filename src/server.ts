@@ -18,7 +18,7 @@ app.post("/send-message", async (req, res) => {
 
   if ($response.error) {
     console.log(`[Error] Was not possible to send message`);
-    return res.status(502).send({ error: $response.error });
+    return res.status(502).send({ ok: false, error: $response.error });
   }
 
   console.log(`[${MessageId}] Has been sent successfully`);
