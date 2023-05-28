@@ -1,9 +1,8 @@
 import bodyParser from "body-parser";
 import express from "express";
 
-import { sns } from "./aws-config";
+import { SNS_TOPIC_ARN, sns } from "./aws-config";
 
-const TOPIC_ARN = ""; // put here your ARS topic SNS
 const app = express();
 app.use(bodyParser.json());
 
@@ -16,7 +15,7 @@ app.post("/send-message", async (req, res) => {
   const { $response, MessageId } = await sns
     .publish({
       Message: req.body.message,
-      TopicArn: TOPIC_ARN,
+      TopicArn: SNS_TOPIC_ARN,
     })
     .promise();
 
